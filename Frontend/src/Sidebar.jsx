@@ -9,7 +9,7 @@ function Sidebar(){
   const getAllthead=async()=>{
     
     try{
-       const response=await fetch("http://localhost:8000/api/thread");
+       const response=await fetch("https://sigmagpt-k0je.onrender.com/api/thread");
        const res=await response.json();
        const filterData=res.map(thread=>({threadId:thread.threadId,title:thread.title}))
        console.log(filterData);
@@ -36,7 +36,7 @@ function Sidebar(){
   const changeThread=async(newThreadId)=>{
     setCurrThreadId(newThreadId);
     try{
-        const response=await fetch(`http://localhost:8000/api/thread/${newThreadId}`);
+        const response=await fetch(`https://sigmagpt-k0je.onrender.com/api/thread/${newThreadId}`);
         const res=await response.json();
         console.log(res);
         setPrevChats(res);
@@ -50,7 +50,7 @@ function Sidebar(){
 
   const deleteThread=async(threadId)=>{
     try{
-       const response=await fetch(`http://localhost:8000/api/thread/${threadId}`,{method:"DELETE"});
+       const response=await fetch(`https://sigmagpt-k0je.onrender.com/api/thread/${threadId}`,{method:"DELETE"});
        const res=await response.json();
        console.log(res);
 
